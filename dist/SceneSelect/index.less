@@ -1,0 +1,35 @@
+.component-scene-select {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  .context {
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    img {
+      height: 86px;
+      width: 100%;
+      transition: all 0.5s;
+    }
+    .desc {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 24px;
+      line-height: 24px;
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.1);
+      color: #fff;
+      backdrop-filter: blur(20px);
+      text-align: center;
+      overflow: hidden;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+  .context:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+}

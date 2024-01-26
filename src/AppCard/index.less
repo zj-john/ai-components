@@ -1,0 +1,97 @@
+.component-app-card {
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 10px;
+
+  .app-body {
+    position: relative;
+    // height: 132px;
+    padding: 22px 24px 18.4px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(17, 25, 37, 0.05);
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 11px;
+      position: relative;
+      .title {
+        display: inline-block;
+        font-weight: 500;
+        font-family: PingFangSC-Medium;
+        font-size: 16px;
+        color: #111925;
+        letter-spacing: 0;
+        margin-left: 8px;
+      }
+      .focus {
+        position: absolute;
+        top: -22px;
+        left: -24px;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid #ff0000;
+        opacity: 0.8;
+        span {
+          position: absolute;
+          top: 7px;
+          left: -48px;
+          transform: rotate(-45deg);
+          color: white;
+        }
+      }
+    }
+    .content {
+      .tags {
+        margin-bottom: 10px;
+      }
+      .desc {
+        font-weight: 400;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: rgba(17, 25, 37, 0.85);
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: 24px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: normal;
+      }
+    }
+  }
+  .btn-footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin: 0px 32px;
+  }
+
+  .app-footer {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #000000b3;
+    .user {
+      display: flex;
+      align-items: center;
+      .user-name {
+        margin-left: 4px;
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
