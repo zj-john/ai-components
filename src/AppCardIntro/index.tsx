@@ -15,19 +15,18 @@ interface Props {
   starNum?: number;
   type?: string;
   focus?: string;
+  headerBgColor?: string;
 }
 
-const AppCard = ({
-  tags = [],
+const AppCardIntro = ({
   name,
   avatarUrl,
   desc,
-  user = '系统用户',
-  userAvatarUrl = 'https://dummyimage.com/80x80/ff0/000',
   onClick,
   starNum,
   type,
   focus,
+  headerBgColor = '#D1E3FF',
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
@@ -38,40 +37,26 @@ const AppCard = ({
     setIsHovered(false);
   };
   return (
-    <div className="component-app-card" onClick={onClick}>
+    <div
+      className="component-app-card-intro"
+      onClick={onClick}
+      style={{ '--HeaderBgColor': headerBgColor }}
+    >
       <div
         className="app-body"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="header">
-          {focus && (
-            <div className="focus">
-              <span>{focus}</span>
-            </div>
-          )}
-          <div className="basic">
-            <Avatar src={avatarUrl} size={32} />
-            <div className="title">{name}</div>
+        {focus && (
+          <div className="focus">
+            <span>{focus}</span>
           </div>
-          {type && (
-            <div className="type">
-              <Tag icon={<RocketFilled />}>{type}</Tag>
-            </div>
-          )}
+        )}
+        <div className="header">
+          <Avatar src={avatarUrl} size={80} />
+          <div className="title">{name}</div>
         </div>
         <div className="content">
-          {tags.length > 0 && (
-            <div className="tags">
-              {tags.map((tag) => {
-                return (
-                  <Tag color="processing" key={tag}>
-                    {tag}
-                  </Tag>
-                );
-              })}
-            </div>
-          )}
           <div className="desc">{desc}</div>
         </div>
       </div>
@@ -84,11 +69,11 @@ const AppCard = ({
       ) : (
         <div className="app-footer">
           <div className="user">
-            <span className="user-name">
-              创建者：
-              <Avatar src={userAvatarUrl} size={20} />
-              <span className="name">{user}</span>
-            </span>
+            {type && (
+              <div className="type">
+                <Tag icon={<RocketFilled />}>{type}</Tag>
+              </div>
+            )}
           </div>
           <div className="summary">
             {starNum && (
@@ -114,4 +99,4 @@ const AppCard = ({
   );
 };
 
-export default AppCard;
+export default AppCardIntro;

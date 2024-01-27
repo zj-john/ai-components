@@ -6,6 +6,9 @@ This is an example component.
 import { ImageResultCard } from 'ai-jimu';
 
 export default () => {
-  return <ImageResultCard />;
+  const props = {
+    loading: true,
+  };
+  return <ImageResultCard {...props} />;
 };
 ```

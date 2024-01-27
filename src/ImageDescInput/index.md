@@ -1,4 +1,4 @@
-# Foo
+# ImageDescInput
 
 This is an example component.
 
