@@ -19,4 +19,4 @@ features:
     description: Put ! description here
 ---
 
-jimu
+ai-jimu

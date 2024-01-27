@@ -3,7 +3,7 @@
 This is an example component.
 
 ```jsx
-import { SceneSelectGroup } from 'jimu';
+import { SceneSelectGroup } from 'ai-jimu';
 
 export default () => {
   const data = [

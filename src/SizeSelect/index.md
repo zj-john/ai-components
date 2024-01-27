@@ -3,7 +3,7 @@
 This is an example component.
 
 ```jsx
-import { SizeSelectGroup } from 'jimu';
+import { SizeSelectGroup } from 'ai-jimu';
 
 export default () => {
   const data = [

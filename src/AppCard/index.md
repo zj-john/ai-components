@@ -1,7 +1,7 @@
 # AppCard
 
 ```jsx
-import { AppCard } from 'jimu';
+import { AppCard } from 'ai-jimu';
 
 export default () => {
   const props = {

@@ -3,7 +3,7 @@
 This is an example component.
 
 ```jsx
-import { Chat } from 'jimu';
+import { Chat } from 'ai-jimu';
 
 export default () => {
   const props = {

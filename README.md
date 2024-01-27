@@ -1,7 +1,7 @@
-# jimu
+# ai-jimu
 
-[![NPM version](https://img.shields.io/npm/v/jimu.svg?style=flat)](https://npmjs.org/package/jimu)
-[![NPM downloads](http://img.shields.io/npm/dm/jimu.svg?style=flat)](https://npmjs.org/package/jimu)
+[![NPM version](https://img.shields.io/npm/v/jimu.svg?style=flat)](https://npmjs.org/package/ai-jimu)
+[![NPM downloads](http://img.shields.io/npm/dm/jimu.svg?style=flat)](https://npmjs.org/package/ai-jimu)
 
 some components
 
