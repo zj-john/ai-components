@@ -22,8 +22,8 @@ const AppCard = ({
   name,
   avatarUrl,
   desc,
-  user = '系统用户',
-  userAvatarUrl = 'https://dummyimage.com/80x80/ff0/000',
+  user = 'AI创作者',
+  userAvatarUrl = 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   onClick,
   starNum,
   type,
@@ -38,12 +38,13 @@ const AppCard = ({
     setIsHovered(false);
   };
   return (
-    <div className="component-app-card" onClick={onClick}>
-      <div
-        className="app-body"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+    <div
+      className="component-app-card"
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="app-body">
         <div className="header">
           {focus && (
             <div className="focus">
