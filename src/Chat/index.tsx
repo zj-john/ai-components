@@ -14,14 +14,24 @@ interface CustomChatProps {
   robotAvatarUrl: string;
   userAvatarUrl: string;
   sendMsg: any;
+  createChat?: any;
+  onCopy?: any;
+  onShare?: any;
+  onLike?: any;
+  onDislike?: any;
 }
 
 const CustomChat = ({
   title,
   welcome,
   robotAvatarUrl,
-  userAvatarUrl,
+  userAvatarUrl = '//gw.alicdn.com/tfs/TB1DYHLwMHqK1RjSZFEXXcGMXXa-56-62.svg',
   sendMsg,
+  createChat,
+  onCopy,
+  onShare,
+  onLike,
+  onDislike,
 }: CustomChatProps) => {
   // const robotMessageContent = (msg) => {
   //   const { content } = msg;
@@ -59,7 +69,8 @@ const CustomChat = ({
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
 
   const handleSend = async (type: string, val: any) => {
-    const format = '内容请以Markdown格式返回';
+    // const format = '内容请以Markdown格式返回';
+    const format = '';
     // 目前只支持纯文本
     if (type === 'text' && val.trim()) {
       appendMsg({
@@ -93,7 +104,13 @@ const CustomChat = ({
         <Bubble>{content.text}</Bubble>
       </div>
     ) : (
-      <RobotBubble {...content} />
+      <RobotBubble
+        {...content}
+        onCopy={onCopy}
+        onShare={onShare}
+        onLike={onLike}
+        onDislike={onDislike}
+      />
     );
   };
 
@@ -105,7 +122,7 @@ const CustomChat = ({
           messages={messages}
           renderMessageContent={renderMessageContent}
           onSend={handleSend}
-          Composer={() => Composer(handleSend)}
+          Composer={() => Composer(handleSend, createChat)}
         />
       ) : (
         <Chat
@@ -115,7 +132,7 @@ const CustomChat = ({
           messages={messages}
           renderMessageContent={renderMessageContent}
           onSend={handleSend}
-          Composer={() => Composer(handleSend)}
+          Composer={() => Composer(handleSend, createChat)}
         />
       )}
     </div>

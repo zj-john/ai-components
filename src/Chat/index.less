@@ -16,6 +16,11 @@
 }
 .ChatApp {
   background-color: #ffffff;
+  position: relative;
+  min-height: 600px;
+}
+.MessageContainer {
+  margin-bottom: 50px;
 }
 .Message.left .Bubble {
   background-color: #f5f7fb;
@@ -62,11 +67,14 @@
   }
 }
 .ChatFooter {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
   .composer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 12px 20px;
+    margin: 12px 0px;
     .new-chat {
       width: 56px;
       height: 56px;

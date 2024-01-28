@@ -9,7 +9,13 @@ import { Bubble } from '@chatui/core';
 import { Space, Tooltip } from 'antd';
 import React from 'react';
 
-const RobotBubble = (content: any) => {
+const RobotBubble = (
+  content: any,
+  onCopy?: any,
+  onShare?: any,
+  onLike?: any,
+  onDislike?: any,
+) => {
   const { text } = content;
   console.log(content);
   return (
@@ -26,17 +32,29 @@ const RobotBubble = (content: any) => {
           <div className="action">
             <Space size={16}>
               <Tooltip title="复制">
-                <CopyOutlined style={{ fontSize: '16px' }} />
+                <CopyOutlined
+                  style={{ fontSize: '16px' }}
+                  onClick={onCopy ? onCopy : () => {}}
+                />
               </Tooltip>
               <Tooltip title="分享">
-                <ShareAltOutlined style={{ fontSize: '16px' }} />
+                <ShareAltOutlined
+                  style={{ fontSize: '16px' }}
+                  onClick={onShare ? onShare : () => {}}
+                />
               </Tooltip>
               <Tooltip title="喜欢">
                 {' '}
-                <LikeOutlined style={{ fontSize: '16px' }} />
+                <LikeOutlined
+                  style={{ fontSize: '16px' }}
+                  onClick={onLike ? onLike : () => {}}
+                />
               </Tooltip>
               <Tooltip title="不喜欢">
-                <DislikeOutlined style={{ fontSize: '16px' }} />
+                <DislikeOutlined
+                  style={{ fontSize: '16px' }}
+                  onClick={onDislike ? onDislike : () => {}}
+                />
               </Tooltip>
             </Space>
           </div>

@@ -1,5 +1,7 @@
 import React from 'react';
+import EmptyImage from './empty.png';
 import './index.less';
+import LoadingImage from './rotate.gif';
 
 interface ImageResultCardProps {
   content: any;
@@ -19,7 +21,7 @@ const ImageResultCard = ({
     <div className="component-image-result-card">
       {loading ? (
         <div className="loading empty">
-          <img src={NoContentImage} />
+          <img src={LoadingImage} />
           <div className="desc">Hi，在左侧输入你的创意吧~</div>
         </div>
       ) : imageArray.length > 0 ? (
@@ -29,7 +31,7 @@ const ImageResultCard = ({
         </div>
       ) : (
         <div className="empty">
-          <img src={NoContentImage} />
+          <img src={EmptyImage} />
           <div className="desc">Hi，在左侧输入你的创意吧~</div>
         </div>
       )}
