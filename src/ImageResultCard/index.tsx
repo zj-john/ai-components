@@ -9,20 +9,14 @@ interface ImageResultCardProps {
   status: string;
 }
 
-const NoContentImage = 'https://dummyimage.com/180x180/ff0/000';
-
-const ImageResultCard = ({
-  content,
-  loading,
-  status,
-}: ImageResultCardProps) => {
+const ImageResultCard = ({ content, loading }: ImageResultCardProps) => {
   const { imageArray = [] } = content || {};
   return (
     <div className="component-image-result-card">
       {loading ? (
         <div className="loading empty">
           <img src={LoadingImage} />
-          <div className="desc">Hi，在左侧输入你的创意吧~</div>
+          <div className="desc">正在生成中~</div>
         </div>
       ) : imageArray.length > 0 ? (
         <div className="content">

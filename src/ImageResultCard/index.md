@@ -7,7 +7,7 @@ import { ImageResultCard } from 'ai-jimu';
 
 export default () => {
   const props = {
-    loading: true,
+    // loading: true,
   };
   return <ImageResultCard {...props} />;
 };

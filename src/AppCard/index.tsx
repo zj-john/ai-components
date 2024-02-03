@@ -1,6 +1,7 @@
 import { RocketFilled, StarOutlined } from '@ant-design/icons';
 import { Avatar, Button, Tag } from 'antd';
 import React, { useState } from 'react';
+import { globalConfig } from '../common/global';
 import './index.less';
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
   starNum?: number;
   type?: string;
   focus?: string;
+  theme?: any;
 }
 
 const AppCard = ({
@@ -28,6 +30,7 @@ const AppCard = ({
   starNum,
   type,
   focus,
+  theme = globalConfig.theme,
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
@@ -43,6 +46,7 @@ const AppCard = ({
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={{ '--PrimaryColorTrans': theme.primaryColorTrans }}
     >
       <div className="app-body">
         <div className="header">

@@ -1,0 +1,113 @@
+.component-image-desc-input {
+  //   width: 400px;
+  padding: 16px;
+  border: 1px solid rgba(17, 25, 37, 0.1);
+  padding-bottom: 8px;
+  border-radius: 6px;
+  &:hover {
+    border: 1px solid #111925;
+  }
+  .textarea-container {
+    textarea {
+      border: 0px;
+      &:focus {
+        border: 0px;
+        outline: none;
+        background: rgba(0, 0, 0, 0);
+        box-shadow: none;
+      }
+    }
+    .operation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-top: 1px solid rgba(17, 25, 37, 0.1);
+      padding-top: 8px;
+      .ant-btn-link {
+        color: #000000;
+      }
+    }
+  }
+}
+.component-image-desc-input-image-modal {
+  .image-to-text-container {
+    padding-top: 0;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 16px 24px;
+    .generate {
+      position: relative;
+      .image {
+        position: relative;
+        width: 100%;
+        height: 160px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        background: #000000;
+        box-sizing: border-box;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          margin: auto;
+        }
+        .operation {
+          position: absolute;
+          display: none;
+          right: 8px;
+          bottom: 8px;
+        }
+        &:hover .operation {
+          display: block;
+        }
+      }
+      .tab {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+.component-image-desc-input-prompt-modal {
+  .prompt-container {
+    display: flex;
+    .ant-tabs {
+      flex: 1;
+      &.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab {
+        margin: 8px 0 0 0;
+      }
+      .ant-tag {
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 14px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        // cursor: pointer;
+      }
+
+      .ant-tag-checkable:not(.ant-tag-checkable-checked) {
+        background-color: #fafafa;
+        border: 1px solid #d9d9d9;
+      }
+    }
+    .result {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      .tag-container {
+        // width: 100%;
+        // height: 0;
+
+        border-radius: 10px;
+        opacity: 1;
+        background: rgba(17, 25, 37, 0.05);
+        padding: 12px;
+        flex: 1;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

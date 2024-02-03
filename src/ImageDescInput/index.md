@@ -3,7 +3,7 @@
 This is an example component.
 
 ```jsx
-import { Foo } from 'ai-jimu';
+import { ImageDescInput } from 'ai-jimu';
 
-export default () => <Foo title="Hello dumi!" />;
+export default () => <ImageDescInput aiPrompt={false} imageToPrompt={false} />;
 ```
