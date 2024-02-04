@@ -16,6 +16,8 @@ interface ImageDescInputProps {
   aiGenerateService: any;
   uploadService: any;
   generateService: any;
+  value: string;
+  onChange: any;
 }
 
 const ImageDescInput = ({
@@ -24,8 +26,10 @@ const ImageDescInput = ({
   aiGenerateService,
   uploadService,
   generateService,
+  value = '',
+  onChange,
 }: ImageDescInputProps) => {
-  const [prompt, setPrompt] = useState('');
+  const [prompt, setPrompt] = useState(value);
   const [imageModalVisible, setImageModalVisible] = useState(false);
   const [promptModalVisible, setPromptModalVisible] = useState(false);
 
@@ -37,7 +41,10 @@ const ImageDescInput = ({
             rows={4}
             placeholder="在这里输入图片描述"
             value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
+            onChange={(e) => {
+              setPrompt(e.target.value);
+              onChange?.(e.target.value);
+            }}
           />
         </div>
         <div className="operation">
@@ -48,7 +55,9 @@ const ImageDescInput = ({
                 type="link"
                 size="small"
                 onClick={async () => {
-                  await aiGenerateService?.(setPrompt);
+                  const res = await aiGenerateService?.(prompt);
+                  setPrompt(res);
+                  onChange?.(res);
                 }}
               >
                 AI生成
@@ -113,6 +122,7 @@ const ImageDescInput = ({
             setPrompt((pre) => {
               return pre + ',' + tags.join(',');
             });
+            onChange?.(prompt + ',' + tags.join(','));
             setPromptModalVisible(false);
           }}
         />
