@@ -8,6 +8,7 @@ import {
 import { Bubble } from '@chatui/core';
 import { Space, Tooltip } from 'antd';
 import React from 'react';
+import { MarkdownRender } from '..';
 
 const RobotBubble = (
   content: any,
@@ -21,7 +22,9 @@ const RobotBubble = (
   return (
     <div className="robot-msg">
       <Bubble>
-        <div className="content">{text}</div>
+        <div className="content">
+          <MarkdownRender content={text.replace(/\\n/g, '\n')} />
+        </div>
         <div className="extra">
           <div className="refresh">
             <Space size={6}>

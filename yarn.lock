@@ -5286,6 +5286,11 @@ git-username@^0.5.0:
   dependencies:
     remote-origin-url "^0.4.0"
 
+github-markdown-css@^5.4.0:
+  version "5.4.0"
+  resolved "http://r.npm.sankuai.com/github-markdown-css/download/github-markdown-css-5.4.0.tgz#4ef2093852d4fa977a2edbeaf752475c858de7d1"
+  integrity sha1-TvIJOFLU+pd6Ltvq91JHXIWN59E=
+
 github-slugger@^1.5.0:
   version "1.5.0"
   resolved "http://r.npm.sankuai.com/github-slugger/download/github-slugger-1.5.0.tgz#17891bbc73232051474d68bd867a34625c955f7d"
@@ -6887,6 +6892,13 @@ lines-and-columns@^1.1.6:
   resolved "http://r.npm.sankuai.com/lines-and-columns/download/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha1-7KKE910pZQeTCdwK2SVauy68FjI=
 
+linkify-it@^5.0.0:
+  version "5.0.0"
+  resolved "http://r.npm.sankuai.com/linkify-it/download/linkify-it-5.0.0.tgz#9ef238bfa6dc70bd8e7f9572b52d369af569b421"
+  integrity sha1-nvI4v6bccL2Of5VytS02mvVptCE=
+  dependencies:
+    uc.micro "^2.0.0"
+
 lint-staged@^13.0.3:
   version "13.3.0"
   resolved "http://r.npm.sankuai.com/lint-staged/download/lint-staged-13.3.0.tgz#7965d72a8d6a6c932f85e9c13ccf3596782d28a5"
@@ -7159,6 +7171,18 @@ map-obj@^4.0.0:
   resolved "http://r.npm.sankuai.com/map-obj/download/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha1-kwT5Buk/qucIgNoQKp8d8OqLsFo=
 
+markdown-it@^14.0.0:
+  version "14.0.0"
+  resolved "http://r.npm.sankuai.com/markdown-it/download/markdown-it-14.0.0.tgz#b4b2ddeb0f925e88d981f84c183b59bac9e3741b"
+  integrity sha1-tLLd6w+SXojZgfhMGDtZusnjdBs=
+  dependencies:
+    argparse "^2.0.1"
+    entities "^4.4.0"
+    linkify-it "^5.0.0"
+    mdurl "^2.0.0"
+    punycode.js "^2.3.1"
+    uc.micro "^2.0.0"
+
 markdown-table@^3.0.0:
   version "3.0.3"
   resolved "http://r.npm.sankuai.com/markdown-table/download/markdown-table-3.0.3.tgz#e6331d30e493127e031dd385488b5bd326e4a6bd"
@@ -7369,6 +7393,11 @@ mdn-data@2.0.4:
   version "2.0.4"
   resolved "http://r.npm.sankuai.com/mdn-data/download/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
   integrity sha1-aZs8OKxvHXKAkaZGULZdOIUC/Vs=
+
+mdurl@^2.0.0:
+  version "2.0.0"
+  resolved "http://r.npm.sankuai.com/mdurl/download/mdurl-2.0.0.tgz#80676ec0433025dd3e17ee983d0fe8de5a2237e0"
+  integrity sha1-gGduwEMwJd0+F+6YPQ/o3loiN+A=
 
 memfs@^3.4.1:
   version "3.6.0"
@@ -9080,6 +9109,11 @@ pumpify@^1.3.3:
     duplexify "^3.6.0"
     inherits "^2.0.3"
     pump "^2.0.0"
+
+punycode.js@^2.3.1:
+  version "2.3.1"
+  resolved "http://r.npm.sankuai.com/punycode.js/download/punycode.js-2.3.1.tgz#6b53e56ad75588234e79f4affa90972c7dd8cdb7"
+  integrity sha1-a1PlatdViCNOefSv+pCXLH3Yzbc=
 
 punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
@@ -11282,6 +11316,11 @@ typescript@~5.0.4:
   version "5.0.4"
   resolved "http://r.npm.sankuai.com/typescript/download/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
   integrity sha1-shf9IBGb1hqU1AESdOCrNpBY2js=
+
+uc.micro@^2.0.0:
+  version "2.0.0"
+  resolved "http://r.npm.sankuai.com/uc.micro/download/uc.micro-2.0.0.tgz#84b3c335c12b1497fd9e80fcd3bfa7634c363ff1"
+  integrity sha1-hLPDNcErFJf9noD807+nY0w2P/E=
 
 umi@^4.0.84:
   version "4.1.1"

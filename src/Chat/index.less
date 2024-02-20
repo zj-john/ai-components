@@ -5,47 +5,49 @@
   font-size: 14px;
   //   --btn-primary-color: #ec2e2e;
 }
-.ChatApp,
-.MessageContainer,
-.Navbar,
-.Message .Bubble,
-.QuickReplies,
-.ChatFooter {
+/* stylelint-disable-next-line selector-class-pattern */
+.ChatApp, .MessageContainer, .Navbar, .Message .Bubble,/* stylelint-disable-next-line selector-class-pattern */
+.QuickReplies, .ChatFooter /* stylelint-disable-next-line selector-class-pattern */ {
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* stylelint-disable-next-line selector-class-pattern */
 .ChatApp {
-  background-color: #ffffff;
+  background-color: #fff;
   position: relative;
   min-height: 600px;
 }
+/* stylelint-disable-next-line selector-class-pattern */
 .MessageContainer {
   margin-bottom: 50px;
 }
+/* stylelint-disable-next-line selector-class-pattern */
 .Message.left .Bubble {
   background-color: #f5f7fb;
   color: #111925;
 }
+/* stylelint-disable-next-line selector-class-pattern */
 .Message.right .Bubble {
   background-color: #f5f7fb;
   color: #111925;
 }
-.QuickReplies,
+/* stylelint-disable-next-line selector-class-pattern */
+.QuickReplies,/* stylelint-disable-next-line selector-class-pattern */
 .ChatFooter {
-  background-color: #ffffff;
+  background-color: #fff;
 }
-.Message-content {
-  color: rgba(0, 0, 0, 0.7);
-  border-radius: 12px;
-  // background: #f5f7fb;
-  padding: 6px;
-  padding-top: 0px;
-  // margin-left: 12px;
-}
+/* stylelint-disable-next-line selector-class-pattern */
 .Message + .Message {
   margin: 28px 0;
 }
+/* stylelint-disable-next-line selector-class-pattern */
 .Message-content {
+  color: rgba(0, 0, 0, 70%);
+  border-radius: 12px;
+  // background: #f5f7fb;
+  padding: 6px;
+  padding-top: 0;
+  // margin-left: 12px;
   .user-msg {
     font-weight: 500;
   }
@@ -55,26 +57,29 @@
       margin-bottom: 16px;
       min-width: 250px;
     }
+
     .extra {
       padding-top: 12px;
       border-top: 1px solid #dcdfe5;
       height: 24px;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
   }
 }
+/* stylelint-disable-next-line selector-class-pattern */
 .ChatFooter {
   position: absolute;
   bottom: 10px;
   width: 100%;
+
   .composer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 12px 0px;
+    margin: 12px 0;
+
     .new-chat {
       width: 56px;
       height: 56px;
@@ -89,6 +94,7 @@
     .input-container {
       display: flex;
       justify-content: center;
+      align-items: center;
       flex: 1;
       // position: relative;
       .ant-input {
@@ -96,6 +102,7 @@
         border-radius: 28px;
         margin-left: 12px;
       }
+
       .ant-btn {
         // position: absolute;
         // right: 14px;

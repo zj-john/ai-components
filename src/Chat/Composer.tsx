@@ -9,7 +9,7 @@ const CustomizeComposer = (handleSend: any, createChat: any) => {
   const {
     transcript,
     listening,
-    resetTranscript,
+    // resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
@@ -36,13 +36,14 @@ const CustomizeComposer = (handleSend: any, createChat: any) => {
         </Tooltip>
       </div>
       <div className="input-container">
-        <Input
+        <Input.TextArea
           value={inputValue}
           onPressEnter={handleSendMsg}
           onChange={(e: { target: { value: any } }) => {
             setInputValue(e.target.value);
           }}
-        ></Input>
+          autoSize={{ minRows: 2, maxRows: 6 }}
+        ></Input.TextArea>
         {/* <div className="mx-2">
           {!listening ? (
             <div onClick={() => SpeechRecognition.startListening()}>
