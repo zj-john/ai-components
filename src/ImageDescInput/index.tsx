@@ -122,7 +122,10 @@ const ImageDescInput = ({
             setPrompt((pre) => {
               return pre + ',' + tags.join(',');
             });
-            onChange?.(prompt + ',' + tags.join(','));
+            const newPrompt = prompt
+              ? prompt + ',' + tags.join(',')
+              : tags.join(',');
+            onChange?.(newPrompt);
             setPromptModalVisible(false);
           }}
         />

@@ -1,4 +1,4 @@
-import { RocketFilled, StarOutlined } from '@ant-design/icons';
+import { StarOutlined } from '@ant-design/icons';
 import { Avatar, Button, Tag } from 'antd';
 import React, { useState } from 'react';
 import './index.less';
@@ -71,7 +71,7 @@ const AppCardIntro = ({
           <div className="user">
             {type && (
               <div className="type">
-                <Tag icon={<RocketFilled />}>{type}</Tag>
+                <Tag>{type}</Tag>
               </div>
             )}
           </div>
