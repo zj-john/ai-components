@@ -19,6 +19,8 @@ interface CustomChatProps {
   onShare?: any;
   onLike?: any;
   onDislike?: any;
+  onRefresh?: any;
+  generateImg?: any;
 }
 
 const CustomChat = ({
@@ -32,6 +34,8 @@ const CustomChat = ({
   onShare,
   onLike,
   onDislike,
+  onRefresh,
+  generateImg,
 }: CustomChatProps) => {
   // const robotMessageContent = (msg) => {
   //   const { content } = msg;
@@ -110,6 +114,8 @@ const CustomChat = ({
         onShare={onShare}
         onLike={onLike}
         onDislike={onDislike}
+        onRefresh={onRefresh}
+        generateImg={generateImg}
       />
     );
   };
