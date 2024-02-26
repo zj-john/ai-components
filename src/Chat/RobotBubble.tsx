@@ -1,6 +1,7 @@
 import {
   CopyOutlined,
   DislikeOutlined,
+  FileImageOutlined,
   LikeOutlined,
   ShareAltOutlined,
   SyncOutlined,
@@ -16,6 +17,8 @@ const RobotBubble = (
   onShare?: any,
   onLike?: any,
   onDislike?: any,
+  onRefresh?: any,
+  generateImg?: any,
 ) => {
   const { text } = content;
   console.log(content);
@@ -27,38 +30,54 @@ const RobotBubble = (
         </div>
         <div className="extra">
           <div className="refresh">
-            <Space size={6}>
-              <SyncOutlined style={{ fontSize: '16px' }} />
-              重新生成
-            </Space>
+            {onRefresh && (
+              <Space size={6}>
+                <SyncOutlined
+                  style={{ fontSize: '16px' }}
+                  onClick={onRefresh}
+                />
+                重新生成
+              </Space>
+            )}
+            {generateImg && (
+              <Space size={6}>
+                <FileImageOutlined
+                  style={{ fontSize: '16px' }}
+                  onClick={generateImg}
+                />
+                生成配图
+              </Space>
+            )}
           </div>
           <div className="action">
             <Space size={16}>
-              <Tooltip title="复制">
-                <CopyOutlined
-                  style={{ fontSize: '16px' }}
-                  onClick={onCopy ? onCopy : () => {}}
-                />
-              </Tooltip>
-              <Tooltip title="分享">
-                <ShareAltOutlined
-                  style={{ fontSize: '16px' }}
-                  onClick={onShare ? onShare : () => {}}
-                />
-              </Tooltip>
-              <Tooltip title="喜欢">
-                {' '}
-                <LikeOutlined
-                  style={{ fontSize: '16px' }}
-                  onClick={onLike ? onLike : () => {}}
-                />
-              </Tooltip>
-              <Tooltip title="不喜欢">
-                <DislikeOutlined
-                  style={{ fontSize: '16px' }}
-                  onClick={onDislike ? onDislike : () => {}}
-                />
-              </Tooltip>
+              {onCopy && (
+                <Tooltip title="复制">
+                  <CopyOutlined style={{ fontSize: '16px' }} onClick={onCopy} />
+                </Tooltip>
+              )}
+              {onShare && (
+                <Tooltip title="分享">
+                  <ShareAltOutlined
+                    style={{ fontSize: '16px' }}
+                    onClick={onShare}
+                  />
+                </Tooltip>
+              )}
+              {onLike && (
+                <Tooltip title="喜欢">
+                  {' '}
+                  <LikeOutlined style={{ fontSize: '16px' }} onClick={onLike} />
+                </Tooltip>
+              )}
+              {onDislike && (
+                <Tooltip title="不喜欢">
+                  <DislikeOutlined
+                    style={{ fontSize: '16px' }}
+                    onClick={onDislike}
+                  />
+                </Tooltip>
+              )}
             </Space>
           </div>
         </div>
