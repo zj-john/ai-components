@@ -1,6 +1,6 @@
 import { PlusCircleOutlined, SendOutlined } from '@ant-design/icons';
 import { Button, Input, Tooltip } from 'antd';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSpeechRecognition } from 'react-speech-recognition';
 import 'regenerator-runtime';
 
@@ -38,7 +38,10 @@ const CustomizeComposer = (handleSend: any, createChat: any) => {
       <div className="input-container">
         <Input.TextArea
           value={inputValue}
-          onPressEnter={handleSendMsg}
+          onPressEnter={(e) => {
+            // e.preventDefault();
+            e.stopPropagation();
+          }}
           onChange={(e: { target: { value: any } }) => {
             setInputValue(e.target.value);
           }}

@@ -53,7 +53,11 @@ const RobotBubble = (
             <Space size={16}>
               {onCopy && (
                 <Tooltip title="复制">
-                  <CopyOutlined style={{ fontSize: '16px' }} onClick={onCopy} />
+                  <CopyOutlined
+                    style={{ fontSize: '16px' }}
+                    className="ai-group-text-copy"
+                    data-clipboard-text={text}
+                  />
                 </Tooltip>
               )}
               {onShare && (

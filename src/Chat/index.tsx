@@ -1,9 +1,9 @@
 import '@chatui/core/es/styles/index.less';
-import React from 'react';
 // 引入组件
 import Chat, { Bubble, useMessages } from '@chatui/core';
 // 引入样式
 import '@chatui/core/dist/index.css';
+import { forwardRef, useImperativeHandle } from 'react';
 import Composer from './Composer';
 import RobotBubble from './RobotBubble';
 import './index.less';
@@ -21,22 +21,10 @@ interface CustomChatProps {
   onDislike?: any;
   onRefresh?: any;
   generateImg?: any;
+  showComposer?: boolean;
 }
 
-const CustomChat = ({
-  title,
-  welcome,
-  robotAvatarUrl,
-  userAvatarUrl = '//gw.alicdn.com/tfs/TB1DYHLwMHqK1RjSZFEXXcGMXXa-56-62.svg',
-  sendMsg,
-  createChat,
-  onCopy,
-  onShare,
-  onLike,
-  onDislike,
-  onRefresh,
-  generateImg,
-}: CustomChatProps) => {
+const CustomChat = forwardRef((props: CustomChatProps, ref) => {
   // const robotMessageContent = (msg) => {
   //   const { content } = msg;
   //   return (
@@ -53,6 +41,21 @@ const CustomChat = ({
   //     </div>
   //   );
   // };
+  const {
+    title,
+    welcome,
+    robotAvatarUrl,
+    userAvatarUrl = '//gw.alicdn.com/tfs/TB1DYHLwMHqK1RjSZFEXXcGMXXa-56-62.svg',
+    sendMsg,
+    createChat,
+    onCopy,
+    onShare,
+    onLike,
+    onDislike,
+    onRefresh,
+    generateImg,
+    showComposer,
+  } = props;
   const robot = {
     user: {
       avatar: robotAvatarUrl,
@@ -82,7 +85,7 @@ const CustomChat = ({
         content: { text: val },
         ...user,
         hasTime: false,
-        position: 'left',
+        position: 'right',
       });
 
       setTyping(true);
@@ -100,6 +103,12 @@ const CustomChat = ({
       });
     }
   };
+
+  useImperativeHandle(ref, () => {
+    return {
+      handleSend,
+    };
+  });
 
   const renderMessageContent = (msg: any) => {
     const { content, user } = msg;
@@ -128,7 +137,9 @@ const CustomChat = ({
           messages={messages}
           renderMessageContent={renderMessageContent}
           onSend={handleSend}
-          Composer={() => Composer(handleSend, createChat)}
+          Composer={() =>
+            showComposer ? Composer(handleSend, createChat) : <></>
+          }
         />
       ) : (
         <Chat
@@ -138,11 +149,13 @@ const CustomChat = ({
           messages={messages}
           renderMessageContent={renderMessageContent}
           onSend={handleSend}
-          Composer={() => Composer(handleSend, createChat)}
+          Composer={() =>
+            showComposer ? Composer(handleSend, createChat) : <></>
+          }
         />
       )}
     </div>
   );
-};
+});
 
 export default CustomChat;
