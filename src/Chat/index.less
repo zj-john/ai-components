@@ -49,13 +49,17 @@
   padding-top: 0;
   // margin-left: 12px;
   .user-msg {
-    font-weight: 500;
+    // font-weight: 500;
+    font-size: 14px;
   }
 
   .robot-msg {
     .content {
       margin-bottom: 16px;
       min-width: 250px;
+      .component-markdown-render.markdown-body {
+        color: #000;
+      }
     }
 
     .extra {
@@ -70,8 +74,8 @@
 }
 /* stylelint-disable-next-line selector-class-pattern */
 .ChatFooter {
-  position: absolute;
-  bottom: 10px;
+  position: sticky;
+  bottom: 0px;
   width: 100%;
 
   .composer {

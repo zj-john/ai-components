@@ -73,7 +73,8 @@ const CustomChat = forwardRef((props: CustomChatProps, ref) => {
       hasTime: false,
     };
   });
-  const { messages, appendMsg, setTyping } = useMessages(initialMessages);
+  const { messages, appendMsg, setTyping, resetList } =
+    useMessages(initialMessages);
 
   const handleSend = async (type: string, val: any) => {
     // const format = '内容请以Markdown格式返回';
@@ -107,6 +108,8 @@ const CustomChat = forwardRef((props: CustomChatProps, ref) => {
   useImperativeHandle(ref, () => {
     return {
       handleSend,
+      resetList,
+      appendMsg,
     };
   });
 
