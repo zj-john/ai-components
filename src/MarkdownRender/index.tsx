@@ -1,6 +1,7 @@
-import 'github-markdown-css/github-markdown.css';
+// import 'github-markdown-css/github-markdown.css';
 import MarkdownIt from 'markdown-it';
 import './index.less';
+import './markdown.light.css';
 
 // 创建一个MarkdownIt实例
 const mdParser = new MarkdownIt({

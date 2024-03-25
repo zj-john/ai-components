@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Bubble } from '@chatui/core';
 import { Space, Tooltip } from 'antd';
-import { Markdown } from '..';
+import { MarkdownRender } from '..';
 
 const RobotBubble = (
   content: any,
@@ -25,8 +25,8 @@ const RobotBubble = (
     <div className="robot-msg">
       <Bubble>
         <div className="content">
-          {/* <MarkdownRender content={text.replace(/\\n/g, '\n')} /> */}
-          <Markdown content={content.text.replace(/\n\n/g, '\n')}></Markdown>
+          <MarkdownRender content={text.replace(/\\n/g, '\n')} />
+          {/* <Markdown content={content.text.replace(/\n\n/g, '\n')}></Markdown> */}
         </div>
         <div className="extra">
           <div className="refresh">
