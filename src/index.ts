@@ -5,7 +5,7 @@ export { default as Foo } from './Foo';
 export { default as ImageDescInput } from './ImageDescInput';
 export { default as ImageResultCard } from './ImageResultCard';
 export { default as MarkdownRender } from './MarkdownRender';
-export { Markdown } from './MarkdownRender/AnotherMarkdownRender';
 export { SceneSelect, SceneSelectGroup } from './SceneSelect';
 export { SizeSelect, SizeSelectGroup } from './SizeSelect';
 export { globalConfig, setGlobalConfig } from './common/global';
+export { ImageStyleSelectGroupConfig } from './consts';
