@@ -17,6 +17,7 @@ interface Props {
   type?: string;
   focus?: string;
   theme?: any;
+  bgColor?: string;
 }
 
 const AppCard = ({
@@ -31,6 +32,7 @@ const AppCard = ({
   type,
   focus,
   theme = globalConfig.theme,
+  bgColor,
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
@@ -46,7 +48,7 @@ const AppCard = ({
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ '--PrimaryColorTrans': theme.primaryColorTrans }}
+      style={{ '--PrimaryColorTrans': bgColor || theme.primaryColorTrans }}
     >
       <div className="app-body">
         <div className="header">
