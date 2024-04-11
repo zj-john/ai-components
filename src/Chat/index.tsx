@@ -89,19 +89,21 @@ const CustomChat = forwardRef((props: CustomChatProps, ref) => {
         position: 'right',
       });
 
-      setTyping(true);
-
-      const res = await sendMsg({
-        type,
-        val: val + format,
-      });
-      appendMsg({
-        type: 'text',
-        content: { text: res },
-        ...robot,
-        hasTime: false,
-        position: 'left',
-      });
+      try {
+        const res = await sendMsg({
+          type,
+          val: val + format,
+        });
+        appendMsg({
+          type: 'text',
+          content: { text: res },
+          ...robot,
+          hasTime: false,
+          position: 'left',
+        });
+      } catch (error) {
+        setTyping(false);
+      }
     }
   };
 
