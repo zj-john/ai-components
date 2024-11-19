@@ -1,10 +1,15 @@
 import {
+  AudioOutlined,
+  LoadingOutlined,
   PictureOutlined,
   ReadOutlined,
   RobotOutlined,
 } from '@ant-design/icons';
-import { Button, Input, Modal, Space } from 'antd';
-import React, { useState } from 'react';
+import { Button, FormInstance, Input, Modal, Space } from 'antd';
+import React, { useEffect, useState } from 'react';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 import ImageToText from './ImageToText';
 import Prompt from './Prompt';
 import './index.less';
@@ -18,6 +23,8 @@ interface ImageDescInputProps {
   generateService: any;
   value: string;
   onChange: any;
+  isVoice?: boolean;
+  form?: FormInstance;
 }
 
 const ImageDescInput = ({
@@ -28,10 +35,45 @@ const ImageDescInput = ({
   generateService,
   value = '',
   onChange,
+  isVoice = false,
+  form,
 }: ImageDescInputProps) => {
   const [prompt, setPrompt] = useState(value);
   const [imageModalVisible, setImageModalVisible] = useState(false);
   const [promptModalVisible, setPromptModalVisible] = useState(false);
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
+
+  useEffect(() => {
+    return () => {
+      SpeechRecognition.stopListening(); // 组件卸载时停止监听
+    };
+  }, []);
+
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Browser doesn&lsquo;t support speech recognition.</span>;
+  }
+
+  useEffect(() => {
+    console.log('listening', listening, transcript);
+    if (!listening && transcript) {
+      // const newValue = prompt + transcript;
+      // setPrompt(newValue);
+      // form?.setFieldValue('desc', newValue);
+      setPrompt((prev) => {
+        const newValue = prev + transcript;
+        setTimeout(() => {
+          form?.setFieldValue('desc', newValue);
+        }, 0);
+        return newValue;
+      });
+      resetTranscript();
+    }
+  }, [listening, transcript, resetTranscript]);
 
   return (
     <div className="component-image-desc-input">
@@ -49,6 +91,24 @@ const ImageDescInput = ({
         </div>
         <div className="operation">
           <Space size={0}>
+            {isVoice && (
+              <div className="cursor-pointer">
+                {!listening ? (
+                  <div onClick={SpeechRecognition.startListening}>
+                    <AudioOutlined />
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => {
+                      SpeechRecognition.stopListening();
+                      resetTranscript();
+                    }}
+                  >
+                    <LoadingOutlined />
+                  </div>
+                )}
+              </div>
+            )}
             {aiPrompt && (
               <Button
                 icon={<RobotOutlined />}
@@ -76,6 +136,7 @@ const ImageDescInput = ({
               </Button>
             )}
           </Space>
+
           <div>
             <Button
               icon={<ReadOutlined />}
@@ -90,6 +151,11 @@ const ImageDescInput = ({
           </div>
         </div>
       </div>
+      {/* <p>Microphone: {listening ? 'on' : 'off'}</p>
+      <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button onClick={resetTranscript}>Reset</button>
+      <p>{transcript}</p> */}
       <Modal
         className="component-image-desc-input-image-modal"
         title="图片生成关键词"

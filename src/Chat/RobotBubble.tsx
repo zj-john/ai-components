@@ -25,7 +25,7 @@ const RobotBubble = (
     <div className="robot-msg">
       <Bubble>
         <div className="content">
-          <MarkdownRender content={text.replace(/\\n/g, '\n')} />
+          <MarkdownRender content={text} />
           {/* <Markdown content={content.text.replace(/\n\n/g, '\n')}></Markdown> */}
         </div>
         <div className="extra">

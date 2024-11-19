@@ -1,5 +1,5 @@
-import { PlusCircleOutlined, SendOutlined } from '@ant-design/icons';
-import { Button, Input, Tooltip } from 'antd';
+import { SendOutlined } from '@ant-design/icons';
+import { Button, Input } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 import { useSpeechRecognition } from 'react-speech-recognition';
 import 'regenerator-runtime';
@@ -30,11 +30,11 @@ const CustomizeComposer = (handleSend: any, createChat: any) => {
 
   return (
     <div className="composer">
-      <div className="new-chat" onClick={createChat ? createChat : () => {}}>
+      {/* <div className="new-chat" onClick={createChat ? createChat : () => {}}>
         <Tooltip title="创建新对话">
           <PlusCircleOutlined style={{ fontSize: '30px', color: '#707070' }} />
         </Tooltip>
-      </div>
+      </div> */}
       <div className="input-container">
         <Input.TextArea
           value={inputValue}

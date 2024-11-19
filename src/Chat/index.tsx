@@ -76,7 +76,7 @@ const CustomChat = forwardRef((props: CustomChatProps, ref) => {
   const { messages, appendMsg, setTyping, resetList } =
     useMessages(initialMessages);
 
-  const handleSend = async (type: string, val: any) => {
+  const handleSend = async (type: string, val: any, modelConfig?: any) => {
     // const format = '内容请以Markdown格式返回';
     const format = '';
     // 目前只支持纯文本
@@ -88,12 +88,18 @@ const CustomChat = forwardRef((props: CustomChatProps, ref) => {
         hasTime: false,
         position: 'right',
       });
+      setTyping(true);
 
       try {
         const res = await sendMsg({
           type,
           val: val + format,
+          modelConfig,
         });
+        if (!res) {
+          setTyping(false);
+          return;
+        }
         appendMsg({
           type: 'text',
           content: { text: res },

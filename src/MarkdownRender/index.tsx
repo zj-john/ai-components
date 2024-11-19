@@ -11,6 +11,9 @@ const mdParser = new MarkdownIt({
 
 function MarkdownRender({ content }: any) {
   // 将Markdown文本转换为HTML
+  if (!content) {
+    return;
+  }
   const markdownHtml = mdParser.render(content);
 
   // 使用dangerouslySetInnerHTML渲染HTML内容
